@@ -7,8 +7,11 @@
       const urlParams = new URLSearchParams(window.location.search);
       const code = urlParams.get('code');
 
+      // Ekranda kodu göstermek için
+      document.getElementById('codeDisplay').textContent = `Code: ${code}`;
+
       // Uygulama URL'nizi buraya girin
-      const appRedirectUrl = `myapp://callback?code=${code}`;
+      const appRedirectUrl = `myapp://redirectcode?code=${code}`;
 
       // Mobil uygulamaya yönlendirin
       window.location.href = appRedirectUrl;
@@ -18,6 +21,6 @@
   </script>
 </head>
 <body>
-  <h1>Redirecting...</h1>
+  <h1 id="codeDisplay">Redirecting...</h1>
 </body>
 </html>
