@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OAuth Redirect</title>
+  <script>
+    function handleRedirect() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const code = urlParams.get('code');
+
+      // Uygulama URL'nizi buraya girin
+      const appRedirectUrl = `myapp://callback?code=${code}`;
+
+      // Mobil uygulamaya yönlendirin
+      window.location.href = appRedirectUrl;
+    }
+
+    window.onload = handleRedirect;
+  </script>
+</head>
+<body>
+  <h1>Redirecting...</h1>
+</body>
+</html>
