@@ -4,16 +4,19 @@
   <title>OAuth Redirect</title>
   <script>
     function handleRedirect() {
+      // Tam URL'yi ve sorgu parametrelerini al
+      const fullUrl = window.location.href;
       const urlParams = new URLSearchParams(window.location.search);
       const code = urlParams.get('code');
 
-      // Ekranda kodu göstermek için
+      // Tüm URL'yi ve kodu ekranda göstermek için
+      document.getElementById('fullUrlDisplay').textContent = `Full URL: ${fullUrl}`;
       document.getElementById('codeDisplay').textContent = `Code: ${code}`;
 
       // Uygulama URL'nizi buraya girin
       const appRedirectUrl = `xnote-ai://(protected)/settings/Integrations?code=${code}`;
 
-      // Mobil uygulamaya yönlendirin
+      // Mobil uygulamaya yönlendirme
       window.location.href = appRedirectUrl;
     }
 
@@ -21,6 +24,7 @@
   </script>
 </head>
 <body>
+  <h1 id="fullUrlDisplay">Fetching URL...</h1>
   <h1 id="codeDisplay">Redirecting...</h1>
 </body>
 </html>
